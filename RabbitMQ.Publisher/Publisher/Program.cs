@@ -12,17 +12,21 @@ factory.Uri = new("amqps://jzmftdtu:3y8Mi9FFRYDQlIuUTOHVEF-xDxUKsvoX@hawk.rmq.cl
 using IModel channel = connection.CreateModel();
 
 //Queue oluşturma
-channel.QueueDeclare(queue: "example-queue", exclusive: false);
+//channel.QueueDeclare(queue: "example-queue", exclusive: false);
+channel.QueueDeclare(queue: "example-queue", exclusive: false,durable:true);
 // queue: kuyruğun adı, durable: kuyrukdaki mesajların kalıcılığı ile alakalı, exclusive: bu kuyruğun özel olup olmaması, yani bu bağlantının dışında başka bir bağlantı bağlanmıyor true olduğunda,, ayriyetden bağlantı kapandığı zaman o kuyruk imha edilir, autoDelete: kuyruğun içindeki tüm mesajlar tüketildiğinde, kuyruğun silinip silinemiyeceğini talimat sağlar.
 
 // Queue'ya mesaj gönderme
+
+IBasicProperties properties = channel.CreateBasicProperties(); //Mesajları kalıcı olması için
+properties.Persistent = true; //Mesajları kalıcı olması için
 
 //RabbitMQ kuruğa atacağı mesajları byte türünden kabul etmektedir. Haliyle mesajları byte dönüştürmemiz gerekir.
 for (int i = 0; i < 100; i++)
 {
     byte[] message = Encoding.UTF8.GetBytes("Merhaba" + i);
     await Task.Delay(200);
-    channel.BasicPublish(exchange: string.Empty, routingKey: "example-queue", body: message); // Exchange belirtmediğimiz zaman direct exhange davranış benimser ve bu exchange varsayılandır.
+    channel.BasicPublish(exchange: string.Empty, routingKey: "example-queue", body: message, basicProperties: properties); // Exchange belirtmediğimiz zaman direct exhange davranış benimser ve bu exchange varsayılandır.
 }
 
 

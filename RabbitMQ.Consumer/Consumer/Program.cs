@@ -1,31 +1,36 @@
-﻿// Bağlantı oluşturma
-using RabbitMQ.Client;
+﻿using RabbitMQ.Client;
 using RabbitMQ.Client.Events;
 using System.Text;
-
-var queuName = "example-queue";
+var exchangeName = "direct-exchange-example";
+var routingKeyName = "direct-queue-example";
 ConnectionFactory factory = new();
 factory.Uri = new("amqps://jzmftdtu:3y8Mi9FFRYDQlIuUTOHVEF-xDxUKsvoX@hawk.rmq.cloudamqp.com/jzmftdtu");
 
-// Bağlantı aktifleştirma
 IConnection connection = factory.CreateConnection();
 
-// Kanal oluşturma
 IModel channel = connection.CreateModel();
+// 1. Adım
+channel.ExchangeDeclare(exchange: exchangeName, type: ExchangeType.Direct);
 
-// Queu oluşturma
-channel.QueueDeclare(queuName, exclusive: false); //Diğer tarafda nasıl bir yapılandırma varsa aynısı yapılmalı
-// Queue'dan mesaj okuma
-EventingBasicConsumer consumer = new(channel); //Event tanımlamamız gerek
-channel.BasicConsume(queuName, false, consumer); // autoAck: kutruktan alınan mesajı kurukta silip silinmemesi
+// 2. Adım
+string queueName = channel.QueueDeclare().QueueName;
 
+// 3. Adım
+channel.QueueBind(queue:queueName, exchange:exchangeName, routingKey:routingKeyName);
+
+EventingBasicConsumer consumer = new(channel);
+channel.BasicConsume(
+    queue: queueName,
+    autoAck: true,
+    consumer: consumer);
 consumer.Received += (sender, e) =>
 {
-    //Kuyruğa gelen mesajların işlendiği yer.
-    //e.Body : Kuyrukdaki mesajın verisini bütünsel olarak getirecektir.
-    //e.Body.Span / e.Body.ToArray() : Kuyrukdaki mesajın byte verisini getirecektir.
-    var message = Encoding.UTF8.GetString(e.Body.Span); //byte[] türünden gelen mesajı stringe çeviriyoruz
-    Console.WriteLine(message); 
+    string message = Encoding.UTF8.GetString(e.Body.Span);
+    Console.WriteLine(message);
 };
 
 Console.Read();
+
+// 1. Adım : Publisher'da ki exchange ile birebir aynı isimde ve türe sahip bir exchange tanımlanmalıdır.
+// 2. Adım : Punlisher tarafından routing key'de bulunan değerdeki kuyruğa gönderilen mesajları kendi oluşturduğumuz kuyruğa yönlendirerek tüketmemiz gerekmektedir. Bunun için öncelikle bir kuyruk oluşturulmalıdır!
+// 3. Adım

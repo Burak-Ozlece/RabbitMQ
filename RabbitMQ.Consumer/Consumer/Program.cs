@@ -7,25 +7,26 @@ var queuName = "example-queue";
 ConnectionFactory factory = new();
 factory.Uri = new("amqps://jzmftdtu:3y8Mi9FFRYDQlIuUTOHVEF-xDxUKsvoX@hawk.rmq.cloudamqp.com/jzmftdtu");
 
-// Bağlantı aktifleştirma
 IConnection connection = factory.CreateConnection();
 
-// Kanal oluşturma
 IModel channel = connection.CreateModel();
 
-// Queu oluşturma
-channel.QueueDeclare(queuName, exclusive: false); //Diğer tarafda nasıl bir yapılandırma varsa aynısı yapılmalı
-// Queue'dan mesaj okuma
-EventingBasicConsumer consumer = new(channel); //Event tanımlamamız gerek
-channel.BasicConsume(queuName, false, consumer); // autoAck: kutruktan alınan mesajı kurukta silip silinmemesi
+channel.ExchangeDeclare(exchange: "topic-exchange-example", type: ExchangeType.Topic);
+
+Console.Write("Dinleneek topic formatını belirtiniz: ");
+string topic = Console.ReadLine();
+string queueName = channel.QueueDeclare().QueueName;
+
+channel.QueueBind(queueName, "topic-exchange-example", topic);
+
+EventingBasicConsumer consumer = new(channel);
+
+channel.BasicConsume(queueName, true, consumer);
 
 consumer.Received += (sender, e) =>
 {
-    //Kuyruğa gelen mesajların işlendiği yer.
-    //e.Body : Kuyrukdaki mesajın verisini bütünsel olarak getirecektir.
-    //e.Body.Span / e.Body.ToArray() : Kuyrukdaki mesajın byte verisini getirecektir.
-    var message = Encoding.UTF8.GetString(e.Body.Span); //byte[] türünden gelen mesajı stringe çeviriyoruz
-    Console.WriteLine(message); 
+    string message = Encoding.UTF8.GetString(e.Body.Span);
+    Console.WriteLine(message);
 };
 
 Console.Read();

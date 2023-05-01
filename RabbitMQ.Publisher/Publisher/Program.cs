@@ -1,7 +1,6 @@
 ﻿using RabbitMQ.Client;
 using System.Text;
-var exchangeName = "direct-exchange-example";
-var routingKeyName = "direct-queue-example";
+
 ConnectionFactory factory = new(); 
 factory.Uri = new("amqps://jzmftdtu:3y8Mi9FFRYDQlIuUTOHVEF-xDxUKsvoX@hawk.rmq.cloudamqp.com/jzmftdtu");
 
@@ -9,19 +8,13 @@ factory.Uri = new("amqps://jzmftdtu:3y8Mi9FFRYDQlIuUTOHVEF-xDxUKsvoX@hawk.rmq.cl
 
 using IModel channel = connection.CreateModel();
 
-channel.ExchangeDeclare(exchange: exchangeName, type: ExchangeType.Direct);
+channel.ExchangeDeclare(exchange: "Exchange1", type: ExchangeType.Direct); // Exchange tanımlıyoruz
 
 while (true)
 {
     Console.Write("Mesaj: ");
-    string message = Console.ReadLine();
-    byte[] byteMessage = Encoding.UTF8.GetBytes(message);
+    string message = Console.ReadLine(); 
+    byte[] byteMessage = Encoding.UTF8.GetBytes(message); // MEsajı byte'a çaviriyoruz
 
-    channel.BasicPublish(
-        exchange: exchangeName, 
-        routingKey: routingKeyName, 
-        body: byteMessage);
+    channel.BasicPublish(exchange: "Exchange1", routingKey: "Burak", body: byteMessage); // Gönderiyoruz
 }
-
-
-Console.Read();

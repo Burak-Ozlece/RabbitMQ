@@ -1,12 +1,12 @@
 {
   "version": 2,
-  "dgSpecHash": "Ee8fj2Xak5D017HKLj8kiYGOqJaqdlJiy53Imgh2EXwX1Y4SsZ7GYPG8oRRG9pnzQVr1dgdtBJZUj4etkhCxYQ==",
+  "dgSpecHash": "lTLOyWKypaSHYnM6Mn94Go1K0KXbFlTdozmx2ZI7HrKasi7HnRlEYb0xVNc8u3/w4tfpcsJ4ixz3ci4Sfm3Nxw==",
   "success": true,
-  "projectFilePath": "C:\\Users\\burak\\Desktop\\RabbitMQ\\RabbitMQ.Consumer\\Consumer\\Consumer.csproj",
+  "projectFilePath": "C:\\Users\\Burak\\Desktop\\RabbitMQ\\RabbitMQ.Consumer\\Consumer\\Consumer.csproj",
   "expectedPackageFiles": [
-    "C:\\Users\\burak\\.nuget\\packages\\rabbitmq.client\\6.5.0\\rabbitmq.client.6.5.0.nupkg.sha512",
-    "C:\\Users\\burak\\.nuget\\packages\\system.memory\\4.5.5\\system.memory.4.5.5.nupkg.sha512",
-    "C:\\Users\\burak\\.nuget\\packages\\system.threading.channels\\7.0.0\\system.threading.channels.7.0.0.nupkg.sha512"
+    "C:\\Users\\Burak\\.nuget\\packages\\rabbitmq.client\\6.5.0\\rabbitmq.client.6.5.0.nupkg.sha512",
+    "C:\\Users\\Burak\\.nuget\\packages\\system.memory\\4.5.5\\system.memory.4.5.5.nupkg.sha512",
+    "C:\\Users\\Burak\\.nuget\\packages\\system.threading.channels\\7.0.0\\system.threading.channels.7.0.0.nupkg.sha512"
   ],
   "logs": []
 }

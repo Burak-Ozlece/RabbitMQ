@@ -1,20 +1,20 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\burak\\Desktop\\RabbitMQ\\RabbitMQ.Consumer\\Consumer\\Consumer.csproj": {}
+    "C:\\Users\\Burak\\Desktop\\RabbitMQ\\RabbitMQ.Consumer\\Consumer\\Consumer.csproj": {}
   },
   "projects": {
-    "C:\\Users\\burak\\Desktop\\RabbitMQ\\RabbitMQ.Consumer\\Consumer\\Consumer.csproj": {
+    "C:\\Users\\Burak\\Desktop\\RabbitMQ\\RabbitMQ.Consumer\\Consumer\\Consumer.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\burak\\Desktop\\RabbitMQ\\RabbitMQ.Consumer\\Consumer\\Consumer.csproj",
+        "projectUniqueName": "C:\\Users\\Burak\\Desktop\\RabbitMQ\\RabbitMQ.Consumer\\Consumer\\Consumer.csproj",
         "projectName": "Consumer",
-        "projectPath": "C:\\Users\\burak\\Desktop\\RabbitMQ\\RabbitMQ.Consumer\\Consumer\\Consumer.csproj",
-        "packagesPath": "C:\\Users\\burak\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\burak\\Desktop\\RabbitMQ\\RabbitMQ.Consumer\\Consumer\\obj\\",
+        "projectPath": "C:\\Users\\Burak\\Desktop\\RabbitMQ\\RabbitMQ.Consumer\\Consumer\\Consumer.csproj",
+        "packagesPath": "C:\\Users\\Burak\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\Burak\\Desktop\\RabbitMQ\\RabbitMQ.Consumer\\Consumer\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
-          "C:\\Users\\burak\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\Burak\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [

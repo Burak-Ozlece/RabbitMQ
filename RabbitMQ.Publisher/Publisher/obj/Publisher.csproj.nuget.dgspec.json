@@ -1,20 +1,20 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\burak\\Desktop\\RabbitMQ\\RabbitMQ.Publisher\\Publisher\\Publisher.csproj": {}
+    "C:\\Users\\Burak\\Desktop\\RabbitMQ\\RabbitMQ.Publisher\\Publisher\\Publisher.csproj": {}
   },
   "projects": {
-    "C:\\Users\\burak\\Desktop\\RabbitMQ\\RabbitMQ.Publisher\\Publisher\\Publisher.csproj": {
+    "C:\\Users\\Burak\\Desktop\\RabbitMQ\\RabbitMQ.Publisher\\Publisher\\Publisher.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\burak\\Desktop\\RabbitMQ\\RabbitMQ.Publisher\\Publisher\\Publisher.csproj",
+        "projectUniqueName": "C:\\Users\\Burak\\Desktop\\RabbitMQ\\RabbitMQ.Publisher\\Publisher\\Publisher.csproj",
         "projectName": "Publisher",
-        "projectPath": "C:\\Users\\burak\\Desktop\\RabbitMQ\\RabbitMQ.Publisher\\Publisher\\Publisher.csproj",
-        "packagesPath": "C:\\Users\\burak\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\burak\\Desktop\\RabbitMQ\\RabbitMQ.Publisher\\Publisher\\obj\\",
+        "projectPath": "C:\\Users\\Burak\\Desktop\\RabbitMQ\\RabbitMQ.Publisher\\Publisher\\Publisher.csproj",
+        "packagesPath": "C:\\Users\\Burak\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\Burak\\Desktop\\RabbitMQ\\RabbitMQ.Publisher\\Publisher\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
-          "C:\\Users\\burak\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\Burak\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
